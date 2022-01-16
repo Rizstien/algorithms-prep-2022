@@ -57,7 +57,6 @@ public class KLargestElements {
 
 		KLargestElements obj = new KLargestElements();
 		obj.solve(A,3).forEach(e-> System.out.print(e+" "));
-
 	}
 
 }
