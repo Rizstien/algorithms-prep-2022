@@ -1,41 +1,30 @@
-# 0-1 Knapsack
+# Equal Average Partition
 **Problem Description**  
 
-Given two integer arrays **A** and **B** of size **N** each which represent **values** and **weights** associated with **N** items respectively.
+Given an array **A** with non negative numbers, divide the array into two parts such that the average of both the parts is equal.
 
-Also given an integer **C** which represents knapsack capacity.
-
-Find out the maximum value subset of **A** such that sum of the weights of this subset is smaller than or equal to **C**.
+Return both parts (If exist). If there is no solution. return an empty list.
 
 **NOTE:**
 
--   You cannot break an item, either pick the complete item, or don’t pick it (0-1 property).
+If a solution exists, you should return a list of exactly 2 lists of integers A and B which follow the following condition :-   numElements in A <= numElements in B
+-   If numElements in A = numElements in B, then A is lexicographically smaller than B ( https://en.wikipedia.org/wiki/Lexicographical_order )
 
-  
-  
-**Problem Constraints**  
+If multiple solutions exist, return the solution where length(A) is minimum. If there is still a tie, return the one where A is lexicographically smallest.
 
-1 <= N <= 103
-
-1 <= C <= 103
-
-1 <= A[i], B[i] <= 103
+Array will contain only non negative numbers.
 
   
   
 **Input Format**  
 
-First argument is an integer array **A** of size **N** denoting the values on **N** items.
-
-Second argument is an integer array **B** of size **N** denoting the weights on **N** items.
-
-Third argument is an integer **C** denoting the knapsack capacity.
+First andonly argument is an integer array **A**.
 
   
   
 **Output Format**  
 
-Return a single integer denoting the maximum value subset of **A** such that sum of the weights of this subset is smaller than or equal to **C**.
+Return 2D array consisting of two rows where each row denoted a partition.
 
   
   
@@ -43,15 +32,7 @@ Return a single integer denoting the maximum value subset of **A** such that sum
 
 Input 1:
 
- A = [60, 100, 120]
- B = [10, 20, 30]
- C = 50
-
-Input 2:
-
- A = [10, 20, 30, 40]
- B = [12, 13, 15, 19]
- C = 10
+ A = [1 7 15 29 11 9]
 
   
   
@@ -59,11 +40,7 @@ Input 2:
 
 Output 1:
 
- 220
-
-Output 2:
-
- 0
+ [9 15] [1 7 11 29]
 
   
   
@@ -71,8 +48,4 @@ Output 2:
 
 Explanation 1:
 
- Taking items with weight 20 and 30 will give us the maximum value i.e 100 + 120 = 220
-
-Explanation 2:
-
- Knapsack capacity is 10 but each item has weight greater than 10 so no items can be considered in the knapsack therefore answer is 0.
+ The average of part is (15+9)/2 = 12, average of second part elements is (1 + 7 + 11 + 29) / 4 = 12
